@@ -6,8 +6,9 @@ int main (){
     printf ("Insira a nota: \n");
     scanf ("%f", &m);
 
-    if (m >= 7.0){
+    if (m >= 4.0 && m < 7.0){
         printf (" aluno aprovado(a)! \n");
+        
 
     }
 
