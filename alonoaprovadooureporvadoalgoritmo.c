@@ -7,7 +7,7 @@ int main (){
     scanf ("%f", &m);
 
     if (m >= 7.0){
-        printf (" aluno aprovado(a)! \n");
+        printf ("aprovado(a)! \n");
 
     }
 
