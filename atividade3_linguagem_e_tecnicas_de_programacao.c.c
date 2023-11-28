@@ -1,37 +1,74 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
-void validarMeta(int dia1[3][3], int dia2[3][3]){
-    /*comecar a implementar aqui
- este programa est? incompleto, faltando implementar a fun??o validarMeta, na qual devem ser implementadas as seguintes regras:
-1- Fazer leitura de um valor de meta.
-2- Somar os valores das duas matriz.
-3- Mostrar em formato de matriz a matriz total.
-4- Escrever na tela os setores que alcan?aram a meta.
+void validarMeta(int dia1[3][3], int dia2[3][3]) {
+    int meta[3][3];
+    int total[3][3];
 
-Exemplifica??o da sa?da do programa na fun??o validarMeta:
-*/
+    // Passo 1: Ler o valor da meta por setor
+    printf("\nDigite a meta por setor:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("Digite a meta para o setor %d de %d: ", (i+1), (j+1));
+            scanf("%d", &meta[i][j]);
+        }
+    }
 
+    // Passo 2: Somar os valores das duas matrizes
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            total[i][j] = dia1[i][j] + dia2[i][j];
+        }
+    }
+
+    // Passo 3: Mostrar a matriz total em formato de matriz
+    printf("\nMatriz Total:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", total[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Passo 4: Escrever na tela os setores que alcan?aram a meta
+    printf("\nSetores que alcan?aram a meta:\n");
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (total[i][j] >= meta[i][j]) {
+                printf("Setor %d de %d atingiu a meta.\n", (i+1), (j+1));
+            }
+        }
+    }
 }
-int main (){
+
+int main() {
+    setlocale(LC_ALL, "Portuguese_Brazil");
 
     int dia1[3][3];
     int dia2[3][3];
     int i, j = 0;
 
-    /*leitura da matriz no primeiro dia*/
-    for (i = 0; i < 3; i++){
-        for (j = 0; j < 3; j++){
-            printf ("digite o total de pessoas %d de %dj\n", (i+1), (j+1));
-            scanf ("%d", &dia1[i][j]);
+    // Leitura da matriz no primeiro dia
+    printf("Leitura da matriz no primeiro dia:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Digite o total de pessoas do setor %d de %d: ", (i+1), (j+1));
+            scanf("%d", &dia1[i][j]);
         }
     }
-    for (i=0; i <3; i++){
-        for (j=0; j<3; j++){
-            printf("digite o total de pessoas do setor %d de %d\n", (i+1), (j+1));
-            scanf ("%d", &dia2[i][j]);
+
+    // Leitura da matriz no segundo dia
+    printf("\nLeitura da matriz no segundo dia:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("Digite o total de pessoas do setor %d de %d: ", (i+1), (j+1));
+            scanf("%d", &dia2[i][j]);
         }
     }
-    /*ler a meta, somar matriz, escrever matriz total, escrever setores que alcancaram a meta, */
+
+    // Chamar a fun??o validarMeta
     validarMeta(dia1, dia2);
+
+    return 0;
 }
