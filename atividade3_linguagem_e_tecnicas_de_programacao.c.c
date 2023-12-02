@@ -31,19 +31,21 @@ void validarMeta(int dia1[3][3], int dia2[3][3]) {
         printf("\n");
     }
 
-    // Passo 4: Escrever na tela os setores que alcan?aram a meta
-    printf("\nSetores que alcan?aram a meta:\n");
+    // Passo 4: Escrever na tela os setores que alcan?aram ou n?o a meta
+    printf("\nResultados por setor:\n");
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (total[i][j] >= meta[i][j]) {
-                printf("Setor %d de %d atingiu a meta.\n", (i+1), (j+1));
+                printf("Setor %d de %d atingiu a meta (%d >= %d).\n", (i+1), (j+1), total[i][j], meta[i][j]);
+            } else {
+                printf("Setor %d de %d n?o alcan?ou a meta (%d < %d).\n", (i+1), (j+1), total[i][j], meta[i][j]);
             }
         }
     }
 }
 
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil");
+    setlocale(LC_ALL, "Portuguese");
 
     int dia1[3][3];
     int dia2[3][3];
