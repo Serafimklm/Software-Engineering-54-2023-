@@ -21,4 +21,5 @@ int main (){
         printf("\n o numero ? impar");
         printf("o n?mero ao quadrado ? igual a %d", quadrado);
     }   
+return (0);
 }
