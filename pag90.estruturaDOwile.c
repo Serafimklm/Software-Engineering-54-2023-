@@ -1,24 +1,47 @@
 #include<stdio.h>
+#include<locale.h>
 
 int main() {
-    int par, impar, num;
-    par = 0;
-    impar = 0;
+    setlocale(LC_ALL, "Portuguese");
 
-    do {
-        printf("Informe o numero (digite 0 para sair): \n");
-        scanf("%d", &num);
+    int idade, npessoas = 0, npessoasi = 0, npessoass = 0, opiniao;
+    float somai = 0, media;
 
-        if (num != 0) {
-            if (num % 2 == 0)
-                par++;
-            else
-                impar++;
+    printf("Informe a idade (ou digite 0 para finalizar):\n");
+    scanf("%d", &idade);
+
+    while (idade != 0) {
+        do {
+            printf("Informe a opinião:\n0- digite 0 para finalizar\n1- satisfatório\n2- indiferente\n3- insatisfatório\n\n");
+            scanf("%d", &opiniao);
+
+            if ((opiniao < 0) || (opiniao > 3)) {
+                printf("Número digitado inválido. Tente novamente.\n");
+            }
+
+        } while ((opiniao < 0) || (opiniao > 3));
+
+        npessoas++;
+        if (opiniao == 1) {
+            somai = somai + idade;
+            npessoass++;
+        } else if (opiniao == 3) {
+            npessoasi++;
         }
-    } while (num != 0);
 
-    printf("A quantidade de par é %d\n", par);
-    printf("A quantidade de impar é %d\n", impar);
+        printf("Informe a idade (ou digite 0 para finalizar):\n");
+        scanf("%d", &idade);
+    }
+
+    if (npessoas > 0) {
+        media = (somai / npessoass);
+        printf("O número de pessoas insatisfeitas foi: %d\n", npessoasi);
+        printf("O número de pessoas satisfeitas foi %d\n", npessoass);
+        printf("A média de idade das pessoas satisfeitas foi %.2f\n", media);
+    } else {
+        printf("Nenhum dado foi inserido.\n");
+    }
 
     return 0;
 }
+
