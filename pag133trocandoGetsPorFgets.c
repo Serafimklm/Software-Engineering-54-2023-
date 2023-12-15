@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+//trocando gets por fgets
 int main() {
     char palavra[30];
     int tam, i;
