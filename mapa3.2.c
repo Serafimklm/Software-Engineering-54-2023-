@@ -19,7 +19,7 @@ struct Atendimento solicitarAtendimento(struct Atendimento atendimentos[], int *
         printf("Digite seu nome completo: \n");
         scanf(" %44[^\n]", novoAtendimento.nome);
         getchar(); // Limpa teclado
-        if (strlen(novoAtendimento.nome) < 14){  // do/ if/ definição que se o nome coter menos de 14 caracters, o nome é imcompleto
+        if (strlen(novoAtendimento.nome) < 14){  // do/ if/ definição que se o nome coter menos de 14 caracters, o nome é incompleto.
             printf("O nome digitado é incompelto. Por favor, ");
         }
     }while (strlen(novoAtendimento.nome)<14);
